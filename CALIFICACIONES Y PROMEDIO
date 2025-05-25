@@ -1,0 +1,28 @@
+#include <stdio.h>
+/*Escribe un programa en C que permita registrar las calificaciones de estudiantes en una materia, donde el programa:
+Pida al usuario ingresar una calificación (un número entero entre 0 y 10) para cada estudiante.
+El programa debe dejar de pedir calificaciones cuando el usuario ingrese -1.
+Al final, el programa debe mostrar la cantidad de calificaciones ingresadas y el promedio de las calificaciones.*/ 
+int main() {
+	float nota,promedio,contador,sumatoria;
+	nota=0;
+	sumatoria=0;
+	contador=0;
+	do{
+		printf("Ingrese la calificacion del estudiante (0-10)\nPresione -1 si desea salir y ver la cantidad de calificaciones y el promedio\n");
+		scanf("%f", &nota);
+		if(nota>-2 && nota <=10){
+			if(nota>-1){
+				sumatoria=sumatoria+nota;
+				contador++;
+			}
+		}else{
+			printf("Error, numero ingresado no valido\n");
+		}
+	} while(nota!=-1);
+	promedio=sumatoria/contador;
+	printf("Cantidad de notas ingresadas: %.0f\n\n",contador);
+	printf("Promedio de las notas: %.2f",promedio);
+	return 0;
+}
+
