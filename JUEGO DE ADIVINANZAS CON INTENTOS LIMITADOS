@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+//Crea un programa en C que genere un número aleatorio entre 1 y 100. El usuario debe adivinar el número en un máximo de 7 intentos.
+	//El usuario ingresa un número y el programa responde
+	//"Muy alto" si el número es mayor al generado.
+	//"Muy bajo" si es menor.
+	//"¡Adivinaste!" si es correcto.
+	//Si el usuario no acierta en 7 intentos, el programa muestra el número secreto.
+	//El usuario puede jugar nuevamente al finalizar, a menos que seleccione la opción de no jugar. 
+	//Es importante que se guarde la cantidad de veces que el usuario ganó y se muestre al final cuando coloca que ya no quiere seguir jugando
+
+int main() {
+	int opcion,numero,i,desafio,puntos,partidas;
+	srand(time(NULL));
+	int aleatorio = rand() %100 +1;
+	printf("Este juego generara un numero aletorio del 1 al  100.\nUsted debera adivinar el numero con un maximo de 7 intentos.\n");
+	printf("¡¡EL NUMERO YA HA SIDO GENERADO!!\n");
+	puntos=0;
+	partidas=0;
+	do {
+		for(i=1;i<=7;i++){
+			printf("Ingrese un numero para intentar adivinar!\n");
+			scanf("%d", &numero);
+			if(numero>aleatorio){
+				printf("Muy alto! Prueba con un numero mas bajo\n\n");
+			}
+			if(numero<aleatorio){
+				printf("Muy bajo! Prueba con un numero mas alto\n\n");
+			}
+			if(numero==aleatorio){
+				printf("Muy Bien! Numero correcto, Sumas 1 punto :)\n\n");
+				puntos++;
+				i=9;
+			}
+			if(i==7){
+				printf("Mejor suerte para la proxima!\n");
+				printf("El numero secreto era: %d\n\n",aleatorio);
+			}
+		}
+		printf("Desea seguir jugando? \n1-SI\n2-No\n");
+		scanf("%d", &desafio);
+		if(desafio==2){
+			printf("Usted acumuló %d puntos durante su partida",puntos);
+		}else{
+			if(desafio==1){
+				printf("Aqui vamos de nuevo. ¡¡NUMERO ALEATORIO GENERADO!!\n");
+				aleatorio = rand() %100 +1;
+			}else{
+				printf("Error, debe ingresar un a opcion valida");
+			}
+		}
+	} while(desafio==1);
+	return 0;
+}
