@@ -1,0 +1,41 @@
+#include <stdio.h>
+//El programa debe pedir,  hasta que el usuario indique que ya no debe ingresar más notas, una nota (0-100) e indicar la calificación:
+	//90-100: Sobresaliente
+	//80-89: Muy Bueno
+	//70-79: Bueno
+	//60-69: Aprobado
+	//Menos de 60: Reprobado
+	
+int main() {
+	int nota,contador;
+	contador=1;
+	do{
+		printf("Ingrese la nota 1-100\n");
+		scanf("%d", &nota);
+		if (nota>100){
+			printf("Error, la nota no puede ser mayor a 100\n");
+		}
+		if (nota<0){
+			printf("Error, la nota no puede ser menor a cero\n");
+		}
+		if (nota>=90 && nota<=100){
+			printf("Felicidades, nota Sobresaliente\n");
+		}
+		if (nota>=80 && nota<90){
+			printf("Felicidades, nota Muy buena\n");
+		}
+		if (nota>=70 && nota<80){
+			printf("Felicidades, nota Buena\n");
+		}
+		if (nota>=60 && nota<70){
+			printf("Felicidades, nota Aprobada\n");
+		}
+		if (nota<60 && nota>=0){
+			printf("Mejor Suerte la proxima, nota Reprobada\n");
+		}
+		printf("Desea seguir subiendo notas?\n1-SI\n2-NO\n");
+		scanf("%d" ,&contador);
+	} while(contador!=2);
+	return 0;
+}
+
